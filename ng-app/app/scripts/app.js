@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name benwalfordApp
- * @description
- * # benwalfordApp
- *
- * Main module of the application.
- */
 angular
   .module('benwalfordApp', [
     'ngAnimate',

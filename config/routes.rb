@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
 
-  get '/', to: redirect('/')
-  
+  get 'posts' => 'posts#index'
+
 end
