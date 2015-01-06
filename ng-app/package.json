@@ -1,8 +1,8 @@
 {
   "name": "benwalford",
   "version": "0.0.0",
-  "dependencies": {},
-  "devDependencies": {
+  "description": "Ben Walford's personal website",
+  "dependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
     "grunt-concurrent": "^0.5.0",
