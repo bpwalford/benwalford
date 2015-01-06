@@ -9,12 +9,12 @@ angular.module('benwalfordApp')
     ];
     $scope.getPosts = function() {
       $http.get('http://localhost:3000/posts').
-        success(function(data, status, headers, config) {
+        success(function(data) {
           $scope.posts = data;
         }).
-        error(function(data, status, headers, config) {
+        error(function() {
           alert('Error');
         });
-    }
+    };
 
   });
