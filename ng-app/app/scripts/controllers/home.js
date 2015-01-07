@@ -7,4 +7,5 @@ angular.module('benwalfordApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.nums = [1,2,3];
   });

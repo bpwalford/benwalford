@@ -13,7 +13,7 @@ angular.module('benwalfordApp')
           $scope.posts = data;
         }).
         error(function() {
-          alert('Error');
+          window.alert('Error');
         });
     };
 
