@@ -8,7 +8,7 @@ angular.module('benwalfordApp')
       'Karma'
     ];
     $scope.getPosts = function() {
-      $http.get('http://localhost:3000/posts').
+      $http.get('https://benwalford.herokuapp.com/posts').
         success(function(data) {
           $scope.posts = data;
         }).
