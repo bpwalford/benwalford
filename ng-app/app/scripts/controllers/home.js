@@ -7,18 +7,18 @@ angular.module('benwalfordApp')
       this.state = state;
 
       this.toggle = function() {
-        if (this.state === 'dead') {
-          this.state = 'alive';
+        if (this.state === ' ') {
+          this.state = '*';
         } else {
-          this.state = 'dead';
+          this.state = ' ';
         }
       };
     };
 
     $scope.cells = [
-      [ (new Cell('dead')),  (new Cell('alive')),  (new Cell('dead')),  ],
-      [ (new Cell('alive')), (new Cell('dead')), (new Cell('alive')), ],
-      [ (new Cell('dead')),  (new Cell('alive')),  (new Cell('dead')),  ],
+      [ (new Cell(' ')), (new Cell('*')), (new Cell(' ')),],
+      [ (new Cell('*')), (new Cell(' ')), (new Cell('*')),],
+      [ (new Cell(' ')), (new Cell('*')), (new Cell(' ')),],
     ];
 
     $interval(function(){
