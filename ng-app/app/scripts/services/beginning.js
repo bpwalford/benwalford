@@ -7,7 +7,7 @@ angular.module('benwalfordApp')
       [(new Cell('*')),(new Cell('*')),(new Cell('*')),],
       [(new Cell(' ')),(new Cell(' ')),(new Cell(' ')),],
       [(new Cell('*')),(new Cell('*')),(new Cell('*')),],
-    ]
+    ];
 
     return initialState;
 
