@@ -1,7 +1,13 @@
 'use strict';
 
 angular.module('benwalfordApp')
-  .controller('HomeCtrl', [ '$scope', '$interval', 'World', function($scope, $interval, World){
+  .controller('HomeCtrl', [
+    '$scope',
+    '$interval',
+    'World',
+    'Cell',
+    'State',
+    function($scope, $interval, World, Cell, State){
 
     $scope.cells = World.initialState;
 
@@ -9,7 +15,7 @@ angular.module('benwalfordApp')
       if ($scope.cells[y] && $scope.cells[y][x]) {
         return $scope.cells[y][x].state;
       } else {
-        return World.dead;
+        return State.dead;
       }
     }
 
@@ -27,7 +33,7 @@ angular.module('benwalfordApp')
         var nY = neighbors[i][1];
         var state = getCellState(nX, nY);
 
-        if (state === World.alive) {
+        if (state === State.live) {
           livingNeighbors++;
         }
       }
@@ -37,7 +43,7 @@ angular.module('benwalfordApp')
 
 
     function calculateNextCellState(x,y,neighbors){
-      if ($scope.cells[y][x].state === World.alive) {
+      if ($scope.cells[y][x].state === State.live) {
         if (neighbors < 2 || neighbors > 3) {
           return $scope.cells[y][x].toggle();
         }
@@ -60,20 +66,14 @@ angular.module('benwalfordApp')
 
           var state = calculateNextCellState(x,y,neighbors);
 
-          nextState[y][x] = new World.buildCell(state);
+          nextState[y][x] = new Cell(state);
         }
       }
 
       $scope.cells = nextState;
     }, 50);
+  }]);
 
-  }])
-  .directive('changeState', function(){
-    return {
-      scope: false,
-      templateUrl: '../../views/board.html'
-    };
-  });
   // .directive('theGame', function() {
   //   return {
   //     scope: {
