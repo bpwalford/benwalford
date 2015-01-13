@@ -1,5 +1,11 @@
-<div ng-repeat='rows in world'>
-  <div class="foo" ng-repeat='cell in rows'>
-    {{cell.state}}
-  </div>
+<div class="board">
+  <table>
+    <tbody>
+      <tr ng-repeat='rows in world'>
+        <td ng-repeat='cell in rows'>
+          {{cell.state}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
