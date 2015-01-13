@@ -1,11 +1,16 @@
-<div class="board">
-  <table>
-    <tbody>
-      <tr ng-repeat='rows in world'>
-        <td ng-repeat='cell in rows'>
-          {{cell.state}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="board">
+  <tbody>
+    <tr ng-repeat='rows in world'>
+      <td ng-repeat='cell in rows'>
+
+        <div class="last-{{cell.lastState}}" ng-if='cell.state === "*"'>
+          <div class="alive">*</div>
+        </div>
+        <div class="last-{{cell.lastState}}" ng-if='cell.state === " "'>
+          <div class="dead"></div>
+        </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,8 +1,58 @@
 
-.alive {
-  color: blue;
+.board {
+
+  width: 100%;
+
+  td {
+    width: 2.1739130435%;
+    height: 6.6666666667vh;
+    text-align: center;
+
+    .dead {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.1);
+
+      &:before {
+        content: '*';
+      }
+    }
+
+    .alive {
+      color: #0421FF;
+      font-size: 35px;
+    }
+
+    .last-dead .alive {
+      animation: fadein .3s;
+      color: #0017C4;
+      font-size: 35px;
+    }
+
+    .last-alive .dead {
+      animation: fadeout .3s;
+      color: red;
+      font-size: 35px;
+    }
+  }
 }
 
-.dead {
-  display: none;
+
+@keyframes fadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes makeSmall {
+  from {font-size: 35px;}
+  to {font-size: 10px;}
+}
+
+@keyframes changeColor {
+  from {color: red;}
+  from {color: white;}
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
