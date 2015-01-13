@@ -1,1 +1,1 @@
-<div ng-repeat="rows in world"> <div class="foo" ng-repeat="cell in rows"> {{cell.state}} </div> </div>
+<table class="board"> <tbody> <tr ng-repeat="rows in world"> <td ng-repeat="cell in rows"> <div class="last-{{cell.lastState}}" ng-if="cell.state === &quot;*&quot;"> <div class="alive">*</div> </div> <div class="last-{{cell.lastState}}" ng-if="cell.state === &quot; &quot;"> <div class="dead"></div> </div>    </table>
