@@ -10,22 +10,8 @@ angular.module('benwalfordApp')
       scope: {
         'world': '='
       },
-
       templateUrl: '../../../views/board.html',
-
       link: function(scope) {
-
-        function buildCell(x,y,state) {
-          var newCell = new Cell(state);
-
-          if (scope.world[y][x].state === State.dead) {
-            newCell.lastState = 'dead';
-          } else {
-            newCell.lastState = 'alive';
-          }
-
-          return newCell;
-        }
 
         function getCellState(x,y){
           if (scope.world[y] && scope.world[y][x]) {
@@ -72,23 +58,32 @@ angular.module('benwalfordApp')
         }
 
         $interval(function(){
-
-          // read the board
-          // create a new array of arrays of new states
-          // iterate over those arrays of arrays and update the cell's state property
-
-          var nextState = World.emptyStructure;
+          var nextState = [];
 
           for (var y = 0; y < scope.world.length; y++) {
+            var row = [];
             for (var x = 0; x < scope.world[y].length; x++) {
               var neighbors = countLivingNeighbors(x,y);
               var state = calculateNextCellState(x,y,neighbors);
-              nextState[y][x] = buildCell(x,y,state);
+              row.push(state);
             }
+            nextState.push(row);
           }
 
-          scope.world = nextState;
-        }, 1000);
+          for (var y = 0; y < nextState.length; y++) {
+            for (var x = 0; x < nextState[y].length; x++) {
+              var currentCell = scope.world[y][x];
+
+              if (currentCell.state === State.dead) {
+                currentCell.lastState = 'dead';
+              } else {
+                currentCell.lastState = 'alive';
+              }
+
+              currentCell.state = nextState[y][x];
+            }
+          }
+        }, 750);
       }
     }
   }]);

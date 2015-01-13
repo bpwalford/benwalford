@@ -1,4 +1,3 @@
-
 .board {
 
   width: 100%;
@@ -29,27 +28,26 @@
     }
 
     .last-alive .dead {
-      animation: fadeout .3s;
-      color: red;
-      font-size: 35px;
+      animation: fadeout .5s;
+      animation: changeColor .5s;
+      font-size: 10px;
+
+      &:before {
+        content: '*';
+      }
     }
   }
 }
 
 
 @keyframes fadeout {
-  from {opacity: 1;}
+  from {opacity: 0,8;}
   to {opacity: 0;}
-}
-
-@keyframes makeSmall {
-  from {font-size: 35px;}
-  to {font-size: 10px;}
 }
 
 @keyframes changeColor {
   from {color: red;}
-  from {color: white;}
+  to {color: rgba(255, 255, 255, 0.0);}
 }
 
 @keyframes fadein {
