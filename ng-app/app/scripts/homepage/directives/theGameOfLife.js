@@ -10,7 +10,9 @@ angular.module('benwalfordApp')
       scope: {
         'world': '='
       },
+
       templateUrl: '../../../views/board.html',
+
       link: function(scope) {
 
         function buildCell(x,y,state) {
@@ -70,6 +72,11 @@ angular.module('benwalfordApp')
         }
 
         $interval(function(){
+
+          // read the board
+          // create a new array of arrays of new states
+          // iterate over those arrays of arrays and update the cell's state property
+
           var nextState = World.emptyStructure;
 
           for (var y = 0; y < scope.world.length; y++) {
@@ -81,7 +88,7 @@ angular.module('benwalfordApp')
           }
 
           scope.world = nextState;
-        }, 100);
+        }, 1000);
       }
     }
   }]);
