@@ -1,6 +1,28 @@
-
-.foo {
+.welcome {
   z-index: 2;
-  color: purple;
-  background: orange;
+  position: absolute;
+  // left: 70%;
+  left: 0;
+  // top: 80%;
+  top: 0;
+  width: 25%;
+  height: 25vh;
+
+  h2 {
+    // padding: 5%;
+    // text-align: center;
+  }
+
+  section {
+    padding: 4%;
+
+    a {
+      width: 32%;
+      text-align: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
